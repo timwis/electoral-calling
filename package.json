@@ -1,0 +1,22 @@
+{
+  "name": "electoral-calling",
+  "version": "0.1.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "budo . --live --css css/styles.css"
+  },
+  "keywords": [],
+  "author": "timwis <tim@timwis.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bulma": "^0.2.3",
+    "choo": "^3.3.0",
+    "tabletop": "^1.4.3",
+    "typestyle": "^0.6.5"
+  },
+  "devDependencies": {
+    "budo": "^9.2.1",
+    "choo-log": "^3.0.0"
+  }
+}
