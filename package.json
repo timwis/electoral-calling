@@ -4,7 +4,11 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "budo . --live --css css/styles.css"
+    "serve": "budo . --serve dist/bundle.js --live",
+    "start": "npm run build:css && npm run serve",
+    "build:css": "mkdir -p dist && cleancss src/styles/main.css -o dist/styles.css",
+    "build:js": "browserify src/index.js -o dist/bundle.js",
+    "build": "npm run build:css && npm run build:js"
   },
   "keywords": [],
   "author": "timwis <tim@timwis.com>",
@@ -17,7 +21,9 @@
     "typestyle": "^0.6.5"
   },
   "devDependencies": {
+    "browserify": "^13.1.1",
     "budo": "^9.2.1",
-    "choo-log": "^3.0.0"
+    "choo-log": "^3.0.0",
+    "clean-css": "^3.4.20"
   }
 }
