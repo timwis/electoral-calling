@@ -42,7 +42,7 @@ module.exports = (data) => {
   function Address (data) {
     const address = data['Address']
     let fullAddress = address
-    if (data['City']) fullAddress += `, ${data['City']} PA`
+    if (data['City']) fullAddress += `, ${data['City']}, ${data['State']}`
     if (data['Zip']) fullAddress += `, ${data['Zip']}`
 
     return address ? html`
