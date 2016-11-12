@@ -1,8 +1,15 @@
 const html = require('choo/html')
 
 const Elector = require('../components/elector')
+const StateNav = require('../components/state-nav')
+const slugify = require('../util').slugify
 
 module.exports = (state, prev, send) => {
+  const activeState = state.params.activeState || 'pennsylvania'
+  const electors = state.electors.filter((elector) => {
+    return slugify(elector['State']) === activeState
+  })
+
   return html`
     <main>
       <section class="hero is-primary">
@@ -19,10 +26,12 @@ module.exports = (state, prev, send) => {
           </div>
         </div>
       </section>
+
       <section class="section">
         <div class="container">
+          ${StateNav(activeState)}
           <div class="columns is-multiline">
-            ${state.electors.map(Elector)}
+            ${electors.map(Elector)}
           </div>
         </div>
       </section>

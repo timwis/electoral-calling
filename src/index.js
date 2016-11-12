@@ -12,8 +12,9 @@ if (process.env.NODE_ENV !== 'production') {
 app.model(require('./models/electors'))
 
 app.router((route) => [
+  route('/:activeState', ListView),
   route('/', ListView)
 ])
 
-const tree = app.start()
+const tree = app.start({ hash: true })
 document.body.appendChild(tree)
