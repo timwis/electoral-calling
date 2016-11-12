@@ -12,10 +12,9 @@ module.exports = (state, prev, send) => {
               Electoral calling
             </h1>
             <h2 class="subtitle">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Nunc at imperdiet felis. Pellentesque tincidunt ipsum in
-              lorem ornare, quis mattis nunc imperdiet. Integer
-              consequat consectetur consequat.
+              The fate of the country is in the hands of these
+              538 members of the electoral college. Here's who
+              they are.
             </h2>
           </div>
         </div>
