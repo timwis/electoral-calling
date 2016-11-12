@@ -4,10 +4,10 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "serve": "budo . --serve dist/bundle.js --live",
+    "serve": "budo . --serve dist/bundle.js --live -- -t envify",
     "start": "npm run build:css && npm run serve",
     "build:css": "mkdir -p dist && cleancss src/styles/main.css -o dist/styles.css",
-    "build:js": "browserify src/index.js -o dist/bundle.js",
+    "build:js": "NODE_ENV=production browserify src/index.js -t envify -g yo-yoify -g unassertify -g es2020 -g uglifyify -o dist/bundle.js",
     "build": "npm run build:css && npm run build:js"
   },
   "keywords": [],
@@ -18,12 +18,17 @@
     "choo": "^3.3.0",
     "nprogress": "^0.2.0",
     "tabletop": "^1.4.3",
-    "typestyle": "^0.6.5"
+    "typestyle": "^0.6.5",
+    "yo-yoify": "^3.4.1"
   },
   "devDependencies": {
     "browserify": "^13.1.1",
     "budo": "^9.2.1",
     "choo-log": "^3.0.0",
-    "clean-css": "^3.4.20"
+    "clean-css": "^3.4.20",
+    "envify": "^3.4.1",
+    "es2020": "^1.1.9",
+    "uglifyify": "^3.0.4",
+    "unassertify": "^2.0.3"
   }
 }
