@@ -1,4 +1,5 @@
 const html = require('choo/html')
+const sortBy = require('lodash/sortBy')
 
 const Elector = require('../components/elector')
 const StateNav = require('../components/state-nav')
@@ -6,9 +7,9 @@ const slugify = require('../util').slugify
 
 module.exports = (state, prev, send) => {
   const activeState = state.params.activeState || 'pennsylvania'
-  const electors = state.electors.filter((elector) => {
-    return slugify(elector['State']) === activeState
-  })
+  const electors = sortBy(state.electors.filter((elector) => {
+    return slugify(elector['Elector For']) === activeState
+  }), 'Photo').reverse()
 
   return html`
     <main>

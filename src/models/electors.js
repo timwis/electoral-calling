@@ -1,7 +1,8 @@
 const Tabletop = require('tabletop')
 const NProgress = require('nprogress')
 
-const spreadsheetKey = '1CHvGdLNmk4ltaX2E_2uDEVSomS5IUVhVDp5RvTu7FbQ'
+const spreadsheetKey = '1f-fXgbqqSS0o6U3M72ivq-yXMZHBDAJrr2RJ43FTbOg'
+const sheetName = 'Electoral College Member Contact Information'
 
 module.exports = {
   state: {
@@ -17,10 +18,11 @@ module.exports = {
       NProgress.start()
       Tabletop.init({
         key: spreadsheetKey,
-        simpleSheet: true,
+        wanted: [ sheetName ],
         callback: (data, tabletop) => {
           NProgress.done()
-          send('receive', data, done)
+          const electors = tabletop.sheets(sheetName).all()
+          send('receive', electors, done)
         }
       })
     }
