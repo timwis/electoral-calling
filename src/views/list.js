@@ -20,9 +20,14 @@ module.exports = (state, prev, send) => {
               Electoral calling
             </h1>
             <h2 class="subtitle">
-              The fate of the country is in the hands of these
-              538 members of the electoral college. Here's who
-              they are.
+              On December 19th, 2016, the 538 members of the Electoral
+              College will elect the next President of the United States.
+              In many states, Electors are bound by state law to vote for
+              the candidate they pledged for, but the states listed below
+              allow Electors to vote for other candidates.
+              The fate of the country is in their hands. Here's who they
+              are.
+              <a href="http://faithlessnow.com/">More info</a>.
             </h2>
           </div>
         </div>
