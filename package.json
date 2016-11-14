@@ -9,7 +9,7 @@
     "build:css": "mkdir -p dist && cleancss src/styles/main.css -o dist/styles.css",
     "build:js": "NODE_ENV=production browserify src/index.js -t envify -g yo-yoify -g unassertify -g es2020 -g uglifyify -o dist/bundle.js",
     "build": "npm run build:css && npm run build:js",
-    "deploy": "npm run build && surge . -d electoral-calling.surge.sh"
+    "deploy": "npm run build && surge . -d electoralcalling.com"
   },
   "keywords": [],
   "author": "timwis <tim@timwis.com>",
