@@ -17,6 +17,7 @@
   "dependencies": {
     "bulma": "^0.2.3",
     "choo": "^3.3.0",
+    "lodash": "^4.17.0",
     "nprogress": "^0.2.0",
     "tabletop": "^1.4.3",
     "typestyle": "^0.6.5",

@@ -9,17 +9,17 @@ module.exports = (active) => {
         ${State('Arizona')}
         ${State('Arkansas')}
         ${State('Georgia')}
+        ${State('Idaho')}
         ${State('Indiana')}
         ${State('Iowa')}
         ${State('Kansas')}
-        ${State('Kentucky')}
         ${State('Louisiana')}
         ${State('Missouri')}
         ${State('North Dakota')}
         ${State('Pennsylvania')}
+        ${State('South Dakota')}
         ${State('Tennessee')}
         ${State('Texas')}
-        ${State('Utah')}
         ${State('West Virginia')}
       </ul>
     </div>

@@ -2,14 +2,12 @@ const html = require('choo/html')
 const style = require('typestyle').style
 
 module.exports = (data) => {
-  const fullName = `${data['First Name']} ${data['Last Name']}`
-
   return html`
     <div class="column">
       <div class="card">
         ${Photo(data)}
         <div class="card-content">
-          <p class="title is-5">${fullName}</p>
+          <p class="title is-5">${data['Member']}</p>
           <div class="content">
             ${Address(data)}
             ${Email(data)}
@@ -40,15 +38,17 @@ module.exports = (data) => {
   }
 
   function Address (data) {
-    const address = data['Address']
-    let fullAddress = address
+    let displayAddress = data['Address 1']
+    if (data['Address 2']) displayAddress += `, ${data['Address 2']}`
+
+    let fullAddress = displayAddress
     if (data['City']) fullAddress += `, ${data['City']}, ${data['State']}`
     if (data['Zip']) fullAddress += `, ${data['Zip']}`
 
-    return address ? html`
+    return displayAddress ? html`
       <div class="address">
         <span class="icon is-small"><i class="fa fa-map-marker"></i></span>
-        <a href="https://maps.google.com/?q=${fullAddress}">${address}</a>
+        <a href="https://maps.google.com/?q=${fullAddress}">${displayAddress}</a>
       </div>
     ` : ''
   }
@@ -65,14 +65,14 @@ module.exports = (data) => {
   }
 
   function Phone (data) {
-    const tel = data['Phone']
+    const telephones = data['Phone'].split('\n')
 
-    return tel ? html`
+    return telephones.map((tel) => html`
       <div class="phone">
         <span class="icon is-small"><i class="fa fa-phone"></i></span>
         <a href="tel:${tel}">${tel}</a>
       </div>
-    ` : ''
+    `)
   }
 
   function Facebook (data) {
